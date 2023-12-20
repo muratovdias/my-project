@@ -1,0 +1,17 @@
+version: "2"
+sql:
+-   engine: "postgresql"
+    schema: "pkg/db/migration"
+    queries: "pkg/db/query"
+    database:
+        uri: "postgresql://root:123@localhost:5432/simple_bank"
+    gen:
+        go:
+            package: "postgres"
+            out: "internal/repository/postgres"
+            sql_package: "database/sql"
+            emit_db_tags: true
+            emit_json_tags: true
+            json_tags_case_style: snake
+            emit_empty_slices: true
+            emit_interface: false
